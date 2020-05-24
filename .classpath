@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CLIdemo/src"/>
+	<classpathentry kind="lib" path="jars/jansi-1.17.1.jar"/>
+	<classpathentry kind="lib" path="jars/jexer-0.3.0.jar"/>
+	<classpathentry kind="lib" path="jars/jline-3.10.0.jar"/>
+	<classpathentry kind="lib" path="jars/MyBank.jar"/>
+	<classpathentry kind="output" path="CLIdemo/bin"/>
+</classpath>

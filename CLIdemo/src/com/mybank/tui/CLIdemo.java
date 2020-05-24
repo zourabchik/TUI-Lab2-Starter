@@ -1,10 +1,13 @@
 package com.mybank.tui;
 
 import com.mybank.reporting.CustomerReport;
+import com.mybank.data.DataSource;
 import com.mybank.domain.Bank;
 import com.mybank.domain.CheckingAccount;
 import com.mybank.domain.Customer;
 import com.mybank.domain.SavingsAccount;
+
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,7 +46,7 @@ public class CLIdemo {
         commandsList = new String[]{"help", "customers", "customer",  "report", "exit"};
     }
 
-    public void run() {
+    public void run() throws IOException {
         AnsiConsole.systemInstall(); // needed to support ansi on Windows cmd
         printWelcomeMessage();
         LineReaderBuilder readerBuilder = LineReaderBuilder.builder();
@@ -56,7 +59,10 @@ public class CLIdemo {
 
         String line;
         PrintWriter out = new PrintWriter(System.out);
-
+        
+        DataSource dataSource = new DataSource("C:\\test.dat");
+        dataSource.loadData();
+        
         while ((line = readLine(reader, "")) != null) {
             if ("help".equals(line)) {
                 printHelp();
@@ -145,7 +151,7 @@ public class CLIdemo {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Bank.addCustomer("John", "Doe");
         Bank.addCustomer("Fox", "Mulder");
